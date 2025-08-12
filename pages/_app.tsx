@@ -27,17 +27,17 @@ function MyApp({ Component, pageProps }: AppProps) {
   })
 
   return (
-    <ThirdwebProvider
-      activeChain={zenChain}
-      clientId={process.env.NEXT_PUBLIC_TEMPLATE_CLIENT_ID}
-    >
-      <QueryClientProvider client={queryClient}>
-        <ChakraProvider value={defaultSystem}>
+    <QueryClientProvider client={queryClient}>
+      <ChakraProvider value={defaultSystem}>
+        <ThirdwebProvider
+          activeChain={zenChain}
+          clientId={process.env.NEXT_PUBLIC_TEMPLATE_CLIENT_ID}
+        >
           <NavBar />
           <Component {...pageProps} />
-        </ChakraProvider>
-      </QueryClientProvider>
-    </ThirdwebProvider>
+        </ThirdwebProvider>
+      </ChakraProvider>
+    </QueryClientProvider>
   );
 }
 
